@@ -13,7 +13,6 @@ const server = new GraphQLServer({
     schema,
     context: ({ request}) =>({ request, isAuthenticated})
 });
-
 server.express.use(logger("dev"));
 server.express.use(authenticationJwt);
 server.express.post("/api/upload", uploadMiddleware, uploadController);
